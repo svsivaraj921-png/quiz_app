@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz Result</title>
+
+    <!-- CSS link (optional) -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="quiz-box">
+    <h1>🎉 Quiz Result 🎉</h1>
+
+    <h2>Your Score: {{ score }} / 5</h2>
+
+    {% if score == 5 %}
+        <p>💖 You are a True Friend!</p>
+    {% elif score >= 3 %}
+        <p>😊 Good Friend! Keep it up.</p>
+    {% else %}
+        <p>🤔 Try again! Friendship needs care.</p>
+    {% endif %}
+
+    <br>
+
+    <a href="/">
+        <button>🔁 Try Again</button>
+    </a>
+</div>
+
+</body>
+</html>

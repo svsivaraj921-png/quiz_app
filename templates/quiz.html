@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Friendship Quiz</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<h1>❤️ Friendship Quiz ❤️</h1>
+
+<form method="POST">
+    {% for q in questions %}
+        {% set q_index = loop.index0 %}
+
+        <p><strong>{{ loop.index }}. {{ q.question }}</strong></p>
+
+        {% for option in q.options %}
+            <label>
+                <input type="radio" name="q{{ q_index }}" value="{{ option }}" required>
+                {{ option }}
+            </label><br>
+        {% endfor %}
+        <br>
+    {% endfor %}
+
+    <button type="submit">Submit</button>
+</form>
+
+</body>
+</html>
